@@ -1,7 +1,5 @@
-# 「8/24-8/30 主題」
+# 「8/7-9/13 主題」
 
-題目：https://www.kinoya.co.jp/whale/#whale
+題目：https://www.media-pedia.com/
 
-
-#### BEM 設計模式
 
