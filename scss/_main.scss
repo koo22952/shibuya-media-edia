@@ -1,0 +1,219 @@
+$fontFm: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, 'Microsoft JhengHei';
+$mainColor: #ffd366;
+$secondColor: #424242;
+$BMISpanColor: #4a4a4a;
+$baseSize: 12px;
+$sizeLevel: 4px;
+
+@function font($level: 0) {
+  @if $level < 0 {
+    $level: 0;
+  }
+  @return $baseSize + $sizeLevel * round($level);
+}
+
+@mixin font-SizeColor($level: 0, $color: $secondColor) {
+  $size: font($level);
+  font-size: $size;
+  color: $color;
+}
+
+@mixin d-flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+%BMIStyle {
+  font-size: font(0);
+  width: 20%;
+  text-align: center;
+  color: $secondColor;
+  span {
+    font-size: font(2);
+    padding-left: 7px;
+    color: $BMISpanColor;
+  }
+}
+
+// header {
+//   @include d-flex();
+//   > .BMIhead {
+//     width: 1000px;
+//     @include d-flex();
+
+//     .logo {
+//       width: calc(100% / 3);
+//       text-align: right;
+//     }
+
+//     .BMIBtn {
+//       .Btn {
+//         @include roundBtn(3, 120px, $mainColor);
+//       }
+
+//       .checkBMIBox {
+//         @include d-flex(flex-star, center);
+//       }
+
+//       .BMI {
+//         @extend %BMIStyle;
+//       }
+//     }
+//   }
+// }
+
+.header {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-image: url(/img/1.jpg);
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  &-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &-inner {
+    margin: 0 auto;
+    max-width: 1320px;
+    height: 100%;
+    padding: 0 4.12%;
+    box-sizing: content-box;
+    position: relative;
+    z-index: 1;
+    > h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 0;
+      max-width: 106px;
+      width: 7.3611111111%;
+      margin: 2.08% 0 0 2.08%;
+      > img {
+        width: 100%;
+      }
+    }
+    &__info {
+      position: absolute;
+      left: 120px;
+      margin-bottom: 120px;
+      bottom: 0;
+      > p {
+        color: #fff;
+        font-size: 16px;
+        font-family: aktiv-grotesk, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        padding-left: 60px;
+        position: relative;
+        margin-bottom: 35px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          height: 2px;
+          width: 40px;
+          background-color: #fff;
+        }
+      }
+      > h2 {
+        color: #fff;
+        font-size: 42px;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      > a {
+        @include d-flex(space-between);
+        text-align: left;
+        border-radius: 4px;
+        width: 54.3%;
+        max-height: 60px;
+        height: 60px;
+        margin-top: 55px;
+        background: #fff;
+        border: 1px solid #eeeeee;
+        padding: 0px 30px 0px 40px;
+
+        > p {
+          font-size: 16px;
+          font-family: aktiv-grotesk, sans-serif;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.02rem;
+        }
+      }
+    }
+    &__ohh {
+      @include d-flex(flex-star);
+      position: absolute;
+      top: 20px;
+      right: 0;
+      max-width: 440px;
+      width: 440px;
+      height: 100px;
+      z-index: 3;
+      background-color: #fff;
+      &__info {
+        @include d-flex(center, flex-star);
+        flex-direction: column;
+        width: 55%;
+        height: 100%;
+        background-color: #000000;
+        > h3 {
+          color: #fff;
+          font-weight: 700;
+          font-style: normal;
+          font-size: 14px;
+          margin-bottom: 12px;
+          letter-spacing: 0;
+          padding-left: 30px;
+        }
+        > p {
+          color: #a3a3a3;
+          font-weight: 700;
+          font-style: normal;
+          font-size: 11px;
+          line-height: 1.5;
+          letter-spacing: 0;
+          padding-left: 30px;
+        }
+      }
+      &__img {
+        width: 45%;
+        height: 100%;
+        position: relative;
+        > img {
+          height: 100%;
+        }
+        > span {
+          @include d-flex();
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #fff;
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.menu {
+}
