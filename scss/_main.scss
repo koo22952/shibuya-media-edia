@@ -37,6 +37,19 @@ $sizeLevel: 4px;
   }
 }
 
+%ViewBtn {
+  @include d-flex(space-between);
+  text-align: left;
+  border-radius: 4px;
+  width: 54.3%;
+  max-height: 60px;
+  height: 60px;
+  margin-top: 55px;
+  background: #fff;
+  border: 1px solid #eeeeee;
+  padding: 0px 30px 0px 40px;
+}
+
 // header {
 //   @include d-flex();
 //   > .BMIhead {
@@ -136,17 +149,7 @@ $sizeLevel: 4px;
         margin-bottom: 10px;
       }
       > a {
-        @include d-flex(space-between);
-        text-align: left;
-        border-radius: 4px;
-        width: 54.3%;
-        max-height: 60px;
-        height: 60px;
-        margin-top: 55px;
-        background: #fff;
-        border: 1px solid #eeeeee;
-        padding: 0px 30px 0px 40px;
-
+        @extend %ViewBtn;
         > p {
           font-size: 16px;
           font-family: aktiv-grotesk, sans-serif;
@@ -184,7 +187,6 @@ $sizeLevel: 4px;
         > p {
           color: #a3a3a3;
           font-weight: 700;
-          font-style: normal;
           font-size: 11px;
           line-height: 1.5;
           letter-spacing: 0;
@@ -216,4 +218,158 @@ $sizeLevel: 4px;
 }
 
 .menu {
+  @include d-flex(space-between);
+  width: 100%;
+  min-height: 80px;
+  height: 80px;
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+  &-inner {
+    @include d-flex();
+    > h1 {
+      width: 56px;
+      max-width: 56px;
+      margin-left: 30px;
+      margin-right: 60px;
+    }
+    > ul {
+      @include d-flex();
+      font-size: 14px;
+      font-weight: 700;
+      > li {
+        margin-right: 40px;
+        cursor: pointer;
+      }
+    }
+  }
+  &-bottom {
+    @include d-flex(space-between);
+    width: 426px;
+    height: 100%;
+
+    &__btn {
+      display: flex;
+      height: auto;
+      border-radius: 3px;
+      margin-right: 24px;
+      padding: 12px 12px 12px 16px;
+      border: #eeeeee 1px solid;
+      align-items: center;
+      > p {
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+        margin-right: 34px;
+      }
+      > img {
+        width: 16px;
+      }
+    }
+    &__icon {
+      @include d-flex();
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border-left: #eeeeee 1px solid;
+      position: relative;
+      & .star {
+        position: absolute;
+        top: 25%;
+        left: 65%;
+        font-size: 10px;
+        color: #fff;
+        font-weight: 700;
+        z-index: 1;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: -1;
+          transform: translate(-50%, -50%);
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: #189add;
+        }
+      }
+      & .line {
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        background-color: #000;
+        &:first-child {
+          margin-top: 13px;
+        }
+        &:last-child {
+          margin-bottom: 13px;
+        }
+      }
+    }
+  }
+}
+
+.about {
+  width: 100%;
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 140px;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    max-height: 140px;
+    height: 18.6vw;
+    background-color: #f5f5f5;
+    z-index: 1;
+  }
+  &-info {
+    padding: 0 4.12%;
+    width: 45%;
+    margin-bottom: 40px;
+    > h2 {
+      font-size: 36px;
+      margin-bottom: 60px;
+      font-weight: 700;
+    }
+    > p {
+      padding-top: 15px;
+      padding-bottom: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.8;
+      border-top: #eeeeee 1px solid;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 1px;
+        width: 6px;
+        background: #000;
+      }
+    }
+    > a {
+      @extend %ViewBtn;
+      margin-top: 0;
+      background: #000;
+      color: white;
+      font-weight: 700;
+    }
+  }
+  &-img {
+    right: 0;
+    top: 0%;
+    height: 0;
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    max-width: 720px;
+    transform: translate(0%, -50%);
+    > img {
+      width: 100%;
+    }
+  }
 }
