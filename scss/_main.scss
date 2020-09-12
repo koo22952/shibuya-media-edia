@@ -17,19 +17,13 @@
   align-items: $align;
 }
 
-@mixin d-flex($justify: center, $align: center) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
-
 @mixin p-line($fontSize: 14px) {
   font-weight: 700;
   border-top: #eeeeee 1px solid;
   position: relative;
   font-size: $fontSize;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -1px;
     left: 0;
@@ -58,33 +52,38 @@
   position: relative;
 }
 
+%bgcover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .header {
   width: 100%;
   height: 100vh;
   overflow: hidden;
   background-size: cover;
-  background-position: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-image: url(../img/headerbg.jpg);
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
+
   &-cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    @extend %bgcover;
   }
 
   &-inner {
     margin: 0 auto;
-    max-width: 1320px;
     height: 100%;
     padding: 0 4.12%;
     box-sizing: content-box;
     position: relative;
     z-index: 1;
+
     > h1 {
       position: absolute;
       top: 0;
@@ -93,15 +92,18 @@
       max-width: 106px;
       width: 7.3611111111%;
       margin: 2.08% 0 0 2.08%;
+
       > img {
         width: 100%;
       }
     }
+
     &__info {
       position: absolute;
       left: 120px;
       margin-bottom: 120px;
       bottom: 0;
+
       > p {
         color: #fff;
         font-size: 16px;
@@ -111,8 +113,9 @@
         padding-left: 60px;
         position: relative;
         margin-bottom: 35px;
+
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           left: 0;
@@ -121,6 +124,7 @@
           background-color: #fff;
         }
       }
+
       > h2 {
         color: #fff;
         font-size: 42px;
@@ -129,8 +133,10 @@
         line-height: 1.4;
         margin-bottom: 10px;
       }
+
       > a {
         @extend %ViewBtn;
+
         > p {
           font-size: 16px;
           font-family: aktiv-grotesk, sans-serif;
@@ -140,6 +146,7 @@
         }
       }
     }
+
     &__ohh {
       @include d-flex(flex-star);
       position: absolute;
@@ -150,12 +157,14 @@
       height: 100px;
       z-index: 3;
       background-color: #fff;
+
       &__info {
         @include d-flex(center, flex-star);
         flex-direction: column;
         width: 55%;
         height: 100%;
         background-color: #000000;
+
         > h3 {
           color: #fff;
           font-weight: 700;
@@ -165,6 +174,7 @@
           letter-spacing: 0;
           padding-left: 30px;
         }
+
         > p {
           color: #a3a3a3;
           font-weight: 700;
@@ -174,13 +184,16 @@
           padding-left: 30px;
         }
       }
+
       &__img {
         width: 45%;
         height: 100%;
         position: relative;
+
         > img {
           height: 100%;
         }
+
         > span {
           @include d-flex();
           width: 20px;
@@ -203,49 +216,55 @@
   width: 100%;
   min-height: 80px;
   height: 80px;
-  display: flex;
   border-bottom: 1px solid #eeeeee;
+
   &-inner {
     @include d-flex();
+
     > h1 {
       width: 56px;
       max-width: 56px;
       margin-left: 30px;
       margin-right: 60px;
     }
+
     > ul {
       @include d-flex();
       font-size: 14px;
       font-weight: 700;
+
       > li {
         margin-right: 40px;
         cursor: pointer;
       }
     }
   }
+
   &-bottom {
     @include d-flex(space-between);
     width: 426px;
     height: 100%;
 
     &__btn {
-      display: flex;
+      @include d-flex(flex-start);
       height: auto;
       border-radius: 3px;
       margin-right: 24px;
       padding: 12px 12px 12px 16px;
       border: #eeeeee 1px solid;
-      align-items: center;
+
       > p {
         font-size: 12px;
         font-weight: 700;
         white-space: nowrap;
         margin-right: 34px;
       }
+
       > img {
         width: 16px;
       }
     }
+
     &__icon {
       @include d-flex();
       background: #fff;
@@ -253,6 +272,7 @@
       height: 100%;
       border-left: #eeeeee 1px solid;
       position: relative;
+
       & .star {
         position: absolute;
         top: 25%;
@@ -261,8 +281,9 @@
         color: #fff;
         font-weight: 700;
         z-index: 1;
+
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           left: 50%;
@@ -274,14 +295,17 @@
           background-color: #189add;
         }
       }
+
       & .line {
         position: absolute;
         width: 16px;
         height: 2px;
         background-color: #000;
+
         &:first-child {
           margin-top: 13px;
         }
+
         &:last-child {
           margin-bottom: 13px;
         }
@@ -295,8 +319,9 @@
   position: relative;
   padding-top: 120px;
   padding-bottom: 140px;
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     max-height: 140px;
@@ -304,23 +329,28 @@
     background-color: #f5f5f5;
     z-index: 1;
   }
+
   &-content {
     @extend %layout;
+
     &__info {
       padding: 0 4%;
       width: 45%;
       margin-bottom: 40px;
+
       > h2 {
         font-size: 36px;
         margin-bottom: 60px;
         font-weight: 700;
       }
+
       > p {
         @include p-line(16px);
         padding-top: 15px;
         padding-bottom: 50px;
         line-height: 1.8;
       }
+
       > a {
         @extend %ViewBtn;
         margin-top: 0;
@@ -329,6 +359,7 @@
         font-weight: 700;
       }
     }
+
     &__img {
       position: absolute;
       z-index: 2;
@@ -337,6 +368,7 @@
       top: 50%;
       right: 0;
       transform: translate(0px, -50%);
+
       > img {
         width: 100%;
       }
@@ -355,18 +387,22 @@
 
     &__info {
       padding: 0 4%;
+
       > h2 {
         font-size: 36px;
         margin-bottom: 60px;
         font-weight: 700;
       }
+
       > p {
         @include p-line();
         padding-top: 20px;
         padding-bottom: 40px;
       }
+
       &__lists {
         display: flex;
+
         > a {
           margin-top: 0;
           font-weight: 700;
@@ -380,25 +416,29 @@
           & .info__img {
             position: relative;
             width: 45%;
+
             > img {
               position: absolute;
               width: 100%;
-              font-family: 'object-fit: contain;';
+              font-family: "object-fit: contain;";
               object-fit: cover;
               border-radius: 3px;
               top: 0;
               left: 0;
             }
           }
+
           & .info__meg {
             width: 50%;
             margin-top: -5px;
+
             > h4 {
               font-size: 18px;
               font-weight: 700;
               line-height: 1.4;
               margin-bottom: 10px;
             }
+
             > p {
               font-size: 14px;
               line-height: 1.4;
@@ -406,6 +446,7 @@
               font-weight: 700;
               color: #a3a3a3;
             }
+
             > span {
               letter-spacing: 0.04rem;
               font-size: 11px;
@@ -428,6 +469,7 @@
       white-space: nowrap;
       overflow: visible;
       padding: 0 4.12%;
+
       > i {
         margin-right: 50px;
         font-size: 60px;
@@ -439,90 +481,344 @@
 .Search {
   width: 100%;
   position: relative;
-  padding-bottom: 140px;
   background-color: #f5f5f5;
 
   &-content {
     @extend %layout;
 
-    &__info {
-      padding: 0 4%;
-      > h2 {
-        font-size: 36px;
-        margin-bottom: 60px;
-        font-weight: 700;
+    &__info,
+    &__info2 {
+      padding: 0 4% 120px;
+
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        > h2 {
+          font-size: 36px;
+          margin-bottom: 60px;
+          font-weight: 700;
+        }
+        > a {
+          @extend %ViewBtn;
+          width: 240px;
+          margin-top: 0;
+          background: #000;
+          color: white;
+          font-weight: 700;
+        }
       }
+
       > p {
         @include p-line();
         padding-top: 20px;
         padding-bottom: 40px;
       }
+
       &__lists {
         display: flex;
+        justify-content: space-between;
+
         > a {
+          @include d-flex(space-between);
+          width: 32.5%;
           margin-top: 0;
           font-weight: 700;
-          display: flex;
-          justify-content: space-between;
-          margin-right: 40px;
-          padding-bottom: 40px;
-          width: 579px;
-          border-bottom: #eeeeee 1px solid;
+          flex-direction: column;
+          padding-bottom: 20px;
+          background: #fff;
+          border-radius: 4px;
 
           & .info__img {
+            background: #7d8e97;
             position: relative;
-            width: 45%;
-            > img {
-              position: absolute;
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            &::after {
+              content: "";
+              @extend %bgcover;
+            }
+
+            &__hightlight {
               width: 100%;
-              font-family: 'object-fit: contain;';
+              color: #fff;
+              font-size: 14px;
+              text-align: center;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 1;
+              > p {
+                font-size: 24px;
+              }
+            }
+
+            > img {
+              width: 100%;
+              height: 100%;
               object-fit: cover;
-              border-radius: 3px;
-              top: 0;
-              left: 0;
             }
           }
+
           & .info__meg {
-            width: 50%;
-            margin-top: -5px;
+            width: 100%;
+            letter-spacing: 0.04rem;
+            padding: 25px 10px 25px 30px;
+            font-size: 14px;
+            font-weight: 700;
+            font-style: normal;
+            line-height: 1.6;
+            position: relative;
+            @include d-flex(space-between);
             > h4 {
-              font-size: 18px;
-              font-weight: 700;
-              line-height: 1.4;
-              margin-bottom: 10px;
-            }
-            > p {
-              font-size: 14px;
-              line-height: 1.4;
-              margin-bottom: 10px;
-              font-weight: 700;
-              color: #a3a3a3;
+              &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: 60px;
+                border-left: #eeeeee 1px solid;
+              }
             }
             > span {
-              letter-spacing: 0.04rem;
-              font-size: 11px;
-              font-weight: 500;
-              font-style: italic;
+              font-size: 16px;
               margin-right: 12px;
-              line-height: 1.4;
-              color: #0099e0;
             }
           }
         }
       }
     }
 
-    &__btn {
+    &__info2 {
       display: flex;
-      justify-content: flex-end;
-      margin: 40px 0;
-      width: 100%;
-      white-space: nowrap;
-      overflow: visible;
-      padding: 0 4.12%;
-      > i {
-        margin-right: 50px;
-        font-size: 60px;
+      &-1 {
+        width: 35%;
+        > p {
+          @include p-line();
+          width: 95%;
+          padding-top: 20px;
+          padding-bottom: 40px;
+        }
+
+        & .Search-content__info__lists {
+          > a {
+            width: 95%;
+          }
+        }
+      }
+
+      &-2 {
+        width: 65%;
+        position: relative;
+
+        & .Search-content__info__title {
+          > p {
+            @include p-line();
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 40px;
+          }
+          > a {
+            @extend %ViewBtn;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            font-size: 12px;
+            width: auto;
+            height: 36px;
+            max-height: 36px;
+            margin-top: 0;
+            background: #000;
+            color: white;
+            font-weight: 700;
+          }
+        }
+        & .Search-content__info__lists {
+          > a {
+            width: 49%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Showcase {
+  width: 100%;
+  position: relative;
+  padding: 120px 0;
+
+  &-content {
+    @extend %layout;
+
+    &__info {
+      padding: 0 4%;
+
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        > h2 {
+          font-size: 36px;
+          margin-bottom: 60px;
+          font-weight: 700;
+        }
+
+        > a {
+          @extend %ViewBtn;
+          width: 240px;
+          margin-top: 0;
+          background: #000;
+          color: white;
+          font-weight: 700;
+        }
+      }
+      > p {
+        @include p-line();
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      &__lists {
+        display: flex;
+        justify-content: space-between;
+
+        > a {
+          width: 32%;
+          height: 360px;
+          position: relative;
+          margin-top: 0;
+          font-weight: 700;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          & .info__img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #7d8e97;
+            overflow: hidden;
+            &::after {
+              content: "";
+              position: absolute;
+              @extend %bgcover;
+            }
+
+            > img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          & .info__title {
+            width: 100%;
+            color: #fff;
+            z-index: 1;
+            padding-top: 11%;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 24px;
+            line-height: 30px;
+          }
+
+          & .info__meg {
+            @include d-flex(space-between);
+            width: 100%;
+            padding: 22px 80px 22px 30px;
+            border-top: 1px solid #eeeeee;
+            letter-spacing: 0.04rem;
+            font-size: 14px;
+            font-weight: 900;
+            color: #fff;
+            font-style: normal;
+            line-height: 1.6;
+            position: relative;
+
+            > h4 {
+              &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: 60px;
+                border-left: #eeeeee 1px solid;
+              }
+            }
+            > span {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 0;
+              margin-right: 20px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Generator {
+  margin-bottom: 120px;
+  height: 513px;
+  overflow: hidden;
+  background-color: red;
+  background-image: url(/img/bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    @extend %bgcover;
+  }
+
+  &__wrapper {
+    @extend %layout;
+    padding:0 4%;
+    height: 100%;
+    z-index: 1;
+
+    &__info {
+      position: relative;
+      width: 45%;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 700;
+      top:50%;
+      transform: translateY(-50%);
+
+      > h2 {
+        font-style: normal;
+        line-height: 1.4;
+        padding-bottom: 55px;
+      }
+
+      > p {
+        font-size: 36px;
+        font-style: normal;
+        line-height: 2;
+        padding-top: 15px;
+        padding-bottom: 50px;
+      }
+
+      > a {
+        @extend %ViewBtn;
+        width: 240px;
+
+        > p {
+          font-size: 16px;
+          font-family: aktiv-grotesk, sans-serif;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.02rem;
+        }
       }
     }
   }
